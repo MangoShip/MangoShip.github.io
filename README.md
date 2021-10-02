@@ -10,11 +10,11 @@ My name is Mingun Cho and I'm currently applying to graduate school to pursue a 
 
 ## CV
 
-[CV](https://docs.google.com/document/d/1-3Fcg1_oxRw2e5DAm8FjauB8E7iidUqoJbyYIChde4E/edit?usp=sharing)
+[CV](https://drive.google.com/file/d/12b3kCLplU6zeB1j6Sxq-Ni0uCyPRTkIP/view?usp=sharing)
 
 ## Screenshots
 
-![screenshot](https://user-images.githubusercontent.com/4943215/109431850-cd711780-7a08-11eb-8601-2763f2ee6bb4.png)
+![screenshot](https://drive.google.com/file/d/1rNKhRr9M1r4XIMgCNqf0aAfo4xTIivTx/view?usp=sharing)
 
 ![screenshot](https://user-images.githubusercontent.com/4943215/109431832-b6cac080-7a08-11eb-9c5e-a058680c23a1.png)
 
