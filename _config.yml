@@ -1,7 +1,7 @@
 title: "Mingun Cho"
 author: "Mingun Cho"
 description: "Last Updated: October 2, 2021"
-permalink: /:home/
+permalink: /:title/
 lang: "en"
 excerpt_separator: "\n\n\n"
 date_format: "%B %d, %Y"
@@ -16,7 +16,7 @@ minimal: false             # use a dark header
 # Menu
 
 navigation:                # accepts {file, title, url, icon, sidebaricon}
-  - {file: "Home.md", title: "Home"}
+  - {file: "README.md", title: "Home"}
   - {file: "Projects.md", title: "Projects"}
 
 external:                  # shows a footer with social links - for available icons see fontawesome.com/icons
