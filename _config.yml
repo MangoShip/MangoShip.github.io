@@ -1,6 +1,6 @@
 title: "Mingun Cho"
 author: "Mingun Cho"
-description: ""
+description: "Last Updated: October 2, 2021"
 permalink: /:title/
 lang: "en"
 excerpt_separator: "\n\n\n"
@@ -16,8 +16,8 @@ minimal: false             # use a dark header
 # Menu
 
 navigation:                # accepts {file, title, url, icon, sidebaricon}
-  - {file: "README.md", title: "Home"}
-  - {file: "index.html", title: "Projects"}
+  - {file: "Home.md", title: "Home"}
+  - {file: "Projects.md", title: "Projects"}
 
 external:                  # shows a footer with social links - for available icons see fontawesome.com/icons
   - {title: Github, icon: github, url: "https://github.com/MangoShip"}
