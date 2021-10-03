@@ -1,7 +1,6 @@
 ---
 title: "Projects"
-permalink: "/projects/"
-layout: page
+layout: default
 ---
 
 - [N-Body Simulation](https://github.com/MangoShip/NBodyWebGPU)
