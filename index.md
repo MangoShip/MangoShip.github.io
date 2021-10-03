@@ -7,8 +7,8 @@ layout: page
 
 ## Contact Info
 
-email: mingun0108@gmail.com, mcho23@ucsc.edu
-phone: +1(408)890-1665
+- email: mingun0108@gmail.com, mcho23@ucsc.edu
+- phone: +1(408)890-1665
 
 ## About Me
 
