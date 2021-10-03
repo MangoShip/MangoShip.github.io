@@ -1,5 +1,5 @@
 ---
 layout: default
-permalink: /:title/
+permalink: /
 title: "Home"
 ---
