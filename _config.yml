@@ -16,8 +16,8 @@ minimal: false             # use a dark header
 # Menu
 
 navigation:                # accepts {file, title, url, icon, sidebaricon}
-  - {file: "README.md", title: "Home"}
-  - {file: "Projects.md", title: "Projects"}
+  - {file: "home.md", title: "Home"}
+  - {file: "projects.md", title: "Projects"}
 
 external:                  # shows a footer with social links - for available icons see fontawesome.com/icons
   - {title: Github, icon: github, url: "https://github.com/MangoShip"}

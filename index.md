@@ -14,4 +14,3 @@ My name is Mingun Cho and I'm currently applying to graduate school to pursue a 
 ## Screenshots
 
 ![screenshot](https://drive.google.com/file/d/1rNKhRr9M1r4XIMgCNqf0aAfo4xTIivTx/view?usp=sharing)
-
