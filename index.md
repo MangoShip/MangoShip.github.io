@@ -5,6 +5,11 @@ layout: page
 
 ![screenshot](https://raw.githubusercontent.com/MangoShip/MangoShip.github.io/master/assets/pictures/MingunChoHeadshot.jpg)
 
+## Contact Info
+
+email: mingun0108@gmail.com, mcho23@ucsc.edu
+phone: +1(408)890-1665
+
 ## About Me
 
 My name is Mingun Cho and I'm currently applying to graduate school to pursue a Ph.D. degree in Computer Science. I received my BS in Computer Science: Game Design at Univeristy of California, Santa Cruz in 2021. My research intersts are programming languages that involve parallelism, memory reliance, and GPU programming. 
