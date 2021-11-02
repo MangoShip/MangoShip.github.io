@@ -21,6 +21,10 @@ Simulating N-Body problems using different techniques (Web Workers, QuadTree, We
 
 IOS/Android App Development for enhancing communication between firefighters during incidents. Worked with Professor Navid Shaghaghi from SCU and other student-programmers. Developed using Android Studio to work on the Android side of the project. Got familiar with using Google Firebase to handle the app’s database. Performed a demo showcase in front of firefighters.
 
+- [Productive!](https://devpost.com/software/productive) (January 2019)
+
+An IOS app that is aimed at students to raise productivity levels. It creates a community within students that allows users to challenge each other with tasks to do. Users have access to view tasks that are done by other users, allowing users to gain motivation from each other. 
+
 ## Game Projects
 
 - [Gods of Corruption](https://redhawkstudios.itch.io/gods-of-corruption) (September 2020 - June 2021)
@@ -34,7 +38,3 @@ A two-player racing game where each player controls a toy car in a house-themed 
 - [Walk of Life](https://barrettrees.com/80k-Games-W2020/WalkOfLife/index.html) (January 2020 - March 2020)
 
 A narrative game that captures two characters talking about their life. The game tries to give the best gameplay experience to the players with its visual and audio effects. Players will be able to learn more about each character, possibly find a connection between them.
-
-- [Productive!](https://devpost.com/software/productive) (January 2019)
-
-An IOS app that is aimed at students to raise productivity levels. It creates a community within students that allows users to challenge each other with tasks to do. Users have access to view tasks that are done by other users, allowing users to gain motivation from each other. 
