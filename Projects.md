@@ -9,7 +9,6 @@ layout: page
 - [LitmusTest Android](https://github.com/MangoShip/LitmusTestAndroid) (October 2021 - Present)
 
 An Android App Development for testing Litmus Test Generator for the Vulkan Framework. Worked with Professor Tyler Sorensen and Reese Levine (Ph.D. student who originally developed Litmus Test Generator for the Vulkan Framework) from UCSC. Developed using Android Studio. The main responsibility was to convert the original project to be compatible with the Android environment. 
-Original Project Link: [https://github.com/reeselevine/litmus-generator](https://github.com/reeselevine/litmus-generator)
 
 - [N-Body Simulation](https://github.com/MangoShip/NBodyWebGPU) (July 2021 - October 2021)
 

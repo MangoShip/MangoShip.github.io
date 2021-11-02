@@ -13,7 +13,3 @@ layout: page
 ## About Me
 
 My name is Mingun Cho and I'm currently applying to graduate schools to pursue a Ph.D. degree in Computer Science for Fall 2022. I received my BS in Computer Science: Game Design at Univeristy of California, Santa Cruz in Spring 2021. My research intersts are programming languages that involve parallelism, memory reliance, and GPU programming. 
-
-## CV
-
-[CV](https://drive.google.com/file/d/12b3kCLplU6zeB1j6Sxq-Ni0uCyPRTkIP/view?usp=sharing)
