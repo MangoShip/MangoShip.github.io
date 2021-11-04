@@ -1,5 +1,5 @@
 ---
-title:  "N-Body Propblem (SharedArrayBuffer)"
+title:  "N-Body Simulation (SharedArrayBuffer)"
 permalink: "blog/NBodySharedArrayBuffer"
 layout: post
 ---

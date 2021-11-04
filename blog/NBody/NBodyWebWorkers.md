@@ -1,5 +1,5 @@
 ---
-title:  "N-Body Propblem (Web Workers)"
+title:  "N-Body Simulation (Web Workers)"
 permalink: "blog/NBodyWebWorkers"
 layout: post
 ---

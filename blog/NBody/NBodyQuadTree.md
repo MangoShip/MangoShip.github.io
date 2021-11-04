@@ -1,5 +1,5 @@
 ---
-title:  "N-Body Propblem (QuadTree)"
+title:  "N-Body Simulation (QuadTree)"
 permalink: "blog/NBodyQuadTree"
 layout: post
 ---

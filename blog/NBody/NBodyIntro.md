@@ -1,5 +1,5 @@
 ---
-title:  "N-Body Propblem (Introduction)"
+title:  "N-Body Simulation (Introduction)"
 permalink: "blog/NBodyIntroduction"
 layout: post
 ---
