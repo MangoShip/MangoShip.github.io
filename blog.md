@@ -9,4 +9,8 @@ layout: page
 Simulating N-Body problems using different techniques (Web Workers, QuadTree, WebGPU) to compare their performance. Worked with Professor Tyler Sorensen from UCSC. With WebGPU’s strength of no hardware requirements, WebGPU is an easily accessible tool for GPU programming even if more traditional Nvidia GPUs are widely available in the department. Also applied my experience from this project to turn into a homework assignment for CSE 113 course, allowing more students to learn about GPU programming.
 [Github Link](https://github.com/MangoShip/NBodyWebGPU)
 
-- 11-04-2021 [Introduction](https://mangoship.github.io/blog/NBodyIntro)
+- 11-04-2021 [Introduction](https://mangoship.github.io/blog/NBodyIntroduction)
+- 11-04-2021 [WebGPU](https://mangoship.github.io/blog/NBodyWebGPU)
+- 11-04-2021 [Web Workers](https://mangoship.github.io/blog/NBodyWebWorkers)
+- 11-04-2021 [SharedArrayBuffer](https://mangoship.github.io/blog/NBodySharedArrayBuffer)
+- 11-04-2021 [QuadTree](https://mangoship.github.io/blog/NBodyQuadTree)

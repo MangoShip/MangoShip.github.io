@@ -1,7 +1,7 @@
 ---
 title:  "N-Body Propblem (Introduction)"
-permalink: "blog/NBodyIntro"
+permalink: "blog/NBodyIntroduction"
 layout: post
 ---
 
-## Test
+Introduction
