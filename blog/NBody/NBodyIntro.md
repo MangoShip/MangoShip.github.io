@@ -28,7 +28,7 @@ However, when `n >= 3` (where it starts to get called as N-Body Problem), we wil
 When there are more than 3 objects, there is no longer a consistent pattern of how these objects move. This means that the location of each object at a certain `t` value will be different among the series of simulations, resulting in a chaotic motion. Just a note: I am not an expert in astrodynamics, so if any of the information that I present is incorrect, please feel free to contact me and let me know! 
 
 So now, let's see how we can create a simulation of the N-body problem. Here is the general structure of the code: 
-1. First store the properties of particles with an initial value of location and velocity. (This will be random)
+1. First store the properties of particles with an initial value of random location and zero velocity.
 2. Traverse through each particle and calculate its next location and velocity based on other particles' locations.
 3. After going through all the particles, render all the particles with their new location.
 4. Repeat 2 and 3.
