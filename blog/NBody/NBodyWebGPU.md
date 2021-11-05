@@ -3,7 +3,7 @@ title:  "N-Body Simulation (WebGPU)"
 permalink: "blog/NBodyWebGPU"
 layout: post
 ---
-*Updated: 11-04-2021*
+*Updated: 11-05-2021*
 
 The first tool that I used to create N-Body Simulation was [WebGPU](https://www.w3.org/TR/webgpu/), which is a JavaScript API for accelerated graphics and compute in web broswers. (Still in development) WebGPU is an easily accessible tool for GPU programming, since it doesn't have a hardware requirement like Ndivida's CUDA. This was my first time getting into GPU programming, so I was very excited!
 
@@ -203,7 +203,7 @@ The reason why I use `Float32Array` is due to how WebGPU contain WebGL applicati
 
 ## 4. Buffer and BindGroups
 
-GPUBuffer is a stored data that can be used in GPU operations. I will be creating a GPUBuffer with `initialParticleData` so the particle properties (position and velocity) can be used in GPU operations.
+`GPUBuffer` is a stored data that can be used in GPU operations. I will be creating a `GPUBuffer` with `initialParticleData` so the particle properties (position and velocity) can be used in GPU operations.
 #### mainWebGPU.ts
 ```
 const particleBuffers: GPUBuffer[] = new Array(2);
@@ -219,9 +219,9 @@ for (let i = 0; i < 2; i++) {
     particleBuffers[i].unmap();
 }
 ```
-Here, I will be specifying the size and usage of GPUBuffer, and set `mappedAtCreation: true`, allowing me to set the buffer's initial data. After that, I use `.getMappedRange()` function to initilize the buffer's data with `initialParticleData`. After completion of the `.getMappedRange()` function, the function `.unmap()` is required to be called to allow the buffer's contents to be used by GPU again. I will be explaining why I created an array of GPUBuffer with size of 2 at the end of talking of GPUBindGroup. 
+Here, I will be specifying the size and usage of `GPUBuffer`, and set `mappedAtCreation: true`, allowing me to set the buffer's initial data. After that, I use `.getMappedRange()` function to initilize the buffer's data with `initialParticleData`. After completion of the `.getMappedRange()` function, the function `.unmap()` is required to be called to allow the buffer's contents to be used by GPU again. I will be explaining why I created an array of `GPUBuffer` with size of 2 at the end of talking of `GPUBindGroup`. 
 
-GPUBindGroup is used for bouding a set of resources together in a group. In my case, I will be using GPUBindGroup to bound the `simParamBuffer` (Buffer that holds parameter variables used in computation), and `particleBuffers`. The GPUBindGroup will be created similiar to how pipelines were created: 
+`GPUBindGroup` is used for bouding a set of resources together in a group. In my case, I will be using GPUBindGroup to bound the `simParamBuffer` (Buffer that holds parameter variables used in computation), and `particleBuffers`. The `GPUBindGroup` will be created similiar to how pipelines were created: 
 #### mainWebGPU.ts
 ```
 const particleBindGroups: GPUBindGroup[] = new Array(2);
@@ -265,7 +265,61 @@ First, calling the compute pipeline's `.getBindGroupLayout(0)` will assign the l
 
 ## 5. Particle Computation
 
+Since I have finished setting up variables, buffers, and bindgroups, it is ready to move onto the main loop of the code. There will be a function called `frame()` that will be repeated infinitely, and the function `frame()` will handle computing particles' new locations, rendering particles with their new locations, and measuring performance. 
+
+The function `main()` from `updateSprite.wgsl` will handle the particle computation with bindings that I have set up in Step 4. Here is pseudocode of the computation:
+### updateSprite.wgsl
+```
+function main() {
+    Initialize variables.
+    Go through all the particles in particlesA. (contain previous location and velocity values)
+        Handle computation.
+    If the new location is going out of bound, then reflect it.
+    Write back the new location and velocity.
+}
+```
+Back to the `mainWebGPU.ts` file, the following lines in function `frame()` will handle Command Encoding for computation:
+### mainWebGPU.ts
+```
+const commandEncoder = device.createCommandEncoder();
+{
+    const passEncoder = commandEncoder.beginComputePass();
+    passEncoder.setPipeline(computePipeline);
+    passEncoder.setBindGroup(0, particleBindGroups[t % 2]);
+    passEncoder.dispatch(canvasWebGPU.width, canvasWebGPU.height);
+    passEncoder.endPass();
+}
+```
+The function `.createCommandEncoder()` creates a `GPUCommandEncoder` that can be either encoded a compute pass or render pass. In this case, I will be calling `.beginComputePass()` to set the command encoder to be encoded as a compute pass. Then, I will set pipeline and bind group to the encoder and finally call `.dispatch()` to begin working with the registered pipeline and bind group. I have provided width and height of canvas to specify the dimension of the grid of workgroups to be dispatched. 
+
 ## 6. Rendering Particles
+
+Beforing rendering in particles, I have to initialize a `GPURenderPassDescriptor` to be used for encodiong a render pass. 
+### mainWebGPU.ts
+```
+const textureView = context.getCurrentTexture().createView();
+const renderPassDescriptor: GPURenderPassDescriptor = {
+    colorAttachments: [
+        {
+            view: textureView,
+            loadValue: { r: 0.0, g: 0.0, b: 0.0, a: 1.0 }, //background color
+            storeOp: 'discard'
+        }
+    ]
+}
+```
+Inside the `GPURenderPassDescriptor`, I will be setting properties of `colorAttachments` that will be visible when executing the render pass. The `loadValue` will accept 2 types: (1)`GPULoadOp`: Load operation to be performed on `view` **prior** to executing the render pass. (2) `GPUColor`: Indicates the value to clear `view` to prior to executing the render pass. Here, I am using `GPUColor` to set the background color of `view`. Before executing the render pass (rendering in particles), the `renderPassDescriptor` will load black background color first. Finally, the `storeOp` indicates the store operation to perform on `view` **after** executing the render pass. **The official WebGPU website does not explain what each `storeOp` (`store`, `discard`) does. Once I figure this out, I will update it.**
+
+Next, I will be calling `.beginRenderPass()` with the Command Encoder that I created before computation. 
+### mainWebGPU.ts
+```
+    const passEncoder = commandEncoder.beginRenderPass(renderPassDescriptor);
+    passEncoder.setPipeline(renderPipeline);
+    passEncoder.setVertexBuffer(0, particleBuffers[(t+1)%2]);
+    passEncoder.draw(numParticles);
+    passEncoder.endPass();   
+```
+Similiar to Step 5, I will be passing the `renderPassDescriptor` that I created, setting the pipeline, and setting the vertex buffer. Here, you will be able to notice that I am setting the vertex buffer with `particleBuffers[(t+1)%2]`. This was done to match with the `particleBuffer` that compute pass used to write the new location of particles. For example, if `t = 0`, compute pass will use `particleBindGroups[0]`, which will be using `particleBuffer[1]` to write the new locations of particles. Then, the render pass will use `particleBuffer[(0+1)%2] = particleBuffer[1]` to render the particles with their new locations. Finally, I will be calling `.draw()` function to draw primitives (`point-list`) with the encoder. 
 
 ## 7. Measuring Performance
 
