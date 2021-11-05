@@ -29,7 +29,7 @@ There are four variables that I will to initialize. I went through this [link](h
 3. Context (webgpu): Context of canvas that can be configured for rendering the particles. 
 4. Format: Specifies order of components, bits per components, and data type for the component. It will be used for context configuration. `bgra8unorm` means `blue, green, red, and alpha` `8 bits per components` `unsigned normalized data type`
 
-## 2. Pipeline
+## 2. Render and Compute Pipeline
 
 In my project, I will be using `.wgsl` files to create functions that can be used by render and compute pipelines. Following is my code to render pipeline:
 #### mainWebGPU.ts
@@ -203,7 +203,65 @@ The reason why I use `Float32Array` is due to how WebGPU contain WebGL applicati
 
 ## 4. Buffer and BindGroups
 
+GPUBuffer is a stored data that can be used in GPU operations. I will be creating a GPUBuffer with `initialParticleData` so the particle properties (position and velocity) can be used in GPU operations.
+#### mainWebGPU.ts
+```
+const particleBuffers: GPUBuffer[] = new Array(2);
+for (let i = 0; i < 2; i++) {
+    particleBuffers[i] = device.createBuffer({
+        size: initialParticleData.byteLength,
+        usage: GPUBufferUsage.VERTEX | GPUBufferUsage.STORAGE,
+        mappedAtCreation: true,
+    });
+    new Float32Array(particleBuffers[i].getMappedRange()).set(
+        initialParticleData
+    );
+    particleBuffers[i].unmap();
+}
+```
+Here, I will be specifying the size and usage of GPUBuffer, and set `mappedAtCreation: true`, allowing me to set the buffer's initial data. After that, I use `.getMappedRange()` function to initilize the buffer's data with `initialParticleData`. After completion of the `.getMappedRange()` function, the function `.unmap()` is required to be called to allow the buffer's contents to be used by GPU again. I will be explaining why I created an array of GPUBuffer with size of 2 at the end of talking of GPUBindGroup. 
 
+GPUBindGroup is used for bouding a set of resources together in a group. In my case, I will be using GPUBindGroup to bound the `simParamBuffer` (Buffer that holds parameter variables used in computation), and `particleBuffers`. The GPUBindGroup will be created similiar to how pipelines were created: 
+#### mainWebGPU.ts
+```
+const particleBindGroups: GPUBindGroup[] = new Array(2);
+for (let i = 0; i < 2; i++) {
+    particleBindGroups[i] = device.createBindGroup({
+        layout: computePipeline.getBindGroupLayout(0),
+        entries: [
+            {
+                binding: 0,
+                resource: {
+                    buffer: simParamBuffer
+                }
+            },
+            {
+                binding: 1,
+                resource: {
+                    buffer: particleBuffers[i],
+                    offset: 0,
+                    size: initialParticleData.byteLength
+                }
+            },
+            {
+                binding: 2,
+                resource: {
+                    buffer: particleBuffers[(i + 1) % 2],
+                    offset: 0,
+                    size: initialParticleData.byteLength
+                }
+            }   
+        ]
+    });
+}
+```
+### updateSprite.wgsl
+```
+[[binding(0), group(0)]] var<uniform> params : SimParams;
+[[binding(1), group(0)]] var<storage, read> particlesA : Particles;
+[[binding(2), group(0)]] var<storage, read_write> particlesB : Particles;
+```
+First, calling the compute pipeline's `.getBindGroupLayout(0)` will assign the layout number as 0. This is why in `updateSprite.wgsl`, each variable has `group(0)` header. Next, I assign binding number (0-2) of each buffer, allowing each variable in `updateSprite.wgsl` to be used during computation. The binding 1 will contain buffer for reading purpose while binding 2 will contain buffer for reading and writing purposes. This means that binding 2 buffer contains the "main particles" that are going to get the new location after computation while the binding 1 buffer contains the previous location value to be used for the computation of "main particles". The reason why I still need the previous location value is to prevent any of threads to use the new location value in part of computation. For example, if I want to compute a new location of particle at index 4, I still need to do the computation with the previous values of particles at indices 0, 1, 2, and 3 instead of their new values. 
 
 ## 5. Particle Computation
 
