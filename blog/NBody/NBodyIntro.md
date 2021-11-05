@@ -16,19 +16,19 @@ Just to talk little bit more on N-Body Problem, let's first see the Two-body pro
 
 [Source](https://en.wikipedia.org/wiki/Two-body_problem)
 
-As you can see from the above GIF, there is a consistent pattern of how two objects orbit around. This means that if we want to know the location of these two objects at certain `t` value, the location will be consistent throughout series of simulation as long as the intial value of properties are consistent.
+As you can see from the above GIF, there is a consistent pattern of how two objects orbit around. This means that if we want to know the location of these two objects at a certain `t` value, the location will be consistent throughout the series of simulations as long as the initial value of properties is consistent.
 
-However, when `n >= 3` (where it starts to get called as N-Body Problem), we will actually be able observe a chaotic 
+However, when `n >= 3` (where it starts to get called as N-Body Problem), we will actually be able observe a chaotic motion.
 
 ![Alt Text](https://media.giphy.com/media/dq8BsHPX7qYsGEolW0/giphy.gif)
 
 [Source](https://vimeo.com/11993047)
 
-When there are more than 3 objects, there is no longer a consistent pattern of how these objects move. This means that the location of each object at certain `t` value will be different among the series of simulation, resulting in a chaotic motion. Just a note: I am not an expert in astrodynamics, so if any of the information that I present is incorrect, please feel free to contact me and let me know! 
+When there are more than 3 objects, there is no longer a consistent pattern of how these objects move. This means that the location of each object at a certain `t` value will be different among the series of simulations, resulting in a chaotic motion. Just a note: I am not an expert in astrodynamics, so if any of the information that I present is incorrect, please feel free to contact me and let me know! 
 
-So now, let's see how we can create a simulation of N-body problem. Here is the general structure of the code: 
-1. First store the properties of particles with initial value of location and velocity. (This will be random)
-2. Traverse through each particle and calculate its next location and velocity based on other particles' location.
+So now, let's see how we can create a simulation of the N-body problem. Here is the general structure of the code: 
+1. First store the properties of particles with an initial value of location and velocity. (This will be random)
+2. Traverse through each particle and calculate its next location and velocity based on other particles' locations.
 3. After going through all the particles, render all the particles with their new location.
 4. Repeat 2 and 3.
 
