@@ -15,7 +15,7 @@ Here is a general structure of my implementation of WebGPU to simulate the N-Bod
 1. Get all variables needed for WebGPU API calls.
 2. Create render and compute pipelines. They will hook up instructions from `.wgsl` files
 3. Create and initialize a Float32Array that stores properties of all particles. (position and velocity)
-4. Create BindGroups for compute pipeline. They will hook up a binding to particle data that can be used during computation.
+4. Create Buffer and BindGroups for the compute pipeline. They will hook up a binding to particle data that can be used during computation.
 5. Start computation (N-Body) on particles.
 6. Start rendering of particles.
 7. Measure performance (FPS) to see the duration of Step 5 and 6.
@@ -189,9 +189,21 @@ passEncoder.setVertexBuffer(1, spriteVertexBuffer);
 
 ## 3. Storing Particles Data
 
+Here, I will be creating a `Float32Array` with size of `Number of Particles * 4`. Each particle will take up 4 indices from the array. (PosX, PosY, VelX, VelY) Then, I will go through the array and initialize the positions of each particle with random values. 
+```    
+const initialParticleData = new Float32Array(numParticles * 4);
+for (let i = 0; i < numParticles; ++i) {
+    initialParticleData[4 * i + 0] = 2 * (Math.random() - 0.5); // posX
+    initialParticleData[4 * i + 1] = 2 * (Math.random() - 0.5); // posY
+    initialParticleData[4 * i + 2] = 0; // velX
+    initialParticleData[4 * i + 3] = 0; // velY
+}
+```
+The reason why I use `Float32Array` is due to how WebGPU contain WebGL application, which requires vectors and matrices to be passed as a `TypedArray` (e.g. `Float32Array`). 
+
+## 4. Buffer and BindGroups
 
 
-## 4. BindGroups
 
 ## 5. Particle Computation
 
