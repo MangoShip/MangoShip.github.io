@@ -3,6 +3,7 @@ title:  "N-Body Simulation (Introduction)"
 permalink: "blog/NBodyIntroduction"
 layout: post
 ---
+*Updated: 11-04-2021*
 
 Hello! This will be my first blog post on a project called N-Body Simulation. I would like to share what I have learned so far while working on this project. 
 
