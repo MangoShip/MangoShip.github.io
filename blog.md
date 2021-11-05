@@ -11,6 +11,6 @@ Simulating N-Body problems using different techniques (Web Workers, QuadTree, We
 
 - 11-04-2021 [Introduction](https://mangoship.github.io/blog/NBodyIntroduction)
 - 11-04-2021 [WebGPU](https://mangoship.github.io/blog/NBodyWebGPU)
-- 11-04-2021 [Web Workers](https://mangoship.github.io/blog/NBodyWebWorkers)
-- 11-04-2021 [SharedArrayBuffer](https://mangoship.github.io/blog/NBodySharedArrayBuffer)
-- 11-04-2021 [QuadTree](https://mangoship.github.io/blog/NBodyQuadTree)
+- (Coming Soon!) [Web Workers](https://mangoship.github.io/blog/NBodyWebWorkers)
+- (Coming Soon!) [SharedArrayBuffer](https://mangoship.github.io/blog/NBodySharedArrayBuffer)
+- (Coming Soon!) [QuadTree](https://mangoship.github.io/blog/NBodyQuadTree)

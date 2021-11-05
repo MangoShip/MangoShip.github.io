@@ -4,4 +4,4 @@ permalink: "blog/NBodyQuadTree"
 layout: post
 ---
 
-QuadTree
+QuadTree (Coming Soon!)
