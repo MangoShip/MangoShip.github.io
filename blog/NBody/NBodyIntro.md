@@ -33,3 +33,7 @@ So now, let's see how we can create a simulation of the N-body problem. Here is 
 4. Repeat 2 and 3.
 
 The main issue here is that Step 2 requires a for-loop (to iterate all the particles) and a nested for-loop (to go through all particles excluding the current one), resulting in `O(n^2)` time complexity. Since I'm aiming to create a simulation with hundreds, or even thousands of particles, coming up with a more efficient method on Step 2 will be the main task of this project. 
+
+#### Useful Videos: 
+- [Newton’s three-body problem explained - Fabio Pacucci](https://www.youtube.com/watch?v=D89ngRr4uZg&ab_channel=TED-Ed)
+- [Solving the Three Body Problem](https://www.youtube.com/watch?v=et7XvBenEo8&t=815s&ab_channel=PBSSpaceTime)
