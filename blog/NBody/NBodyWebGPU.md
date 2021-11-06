@@ -286,11 +286,11 @@ const commandEncoder = device.createCommandEncoder();
     const passEncoder = commandEncoder.beginComputePass();
     passEncoder.setPipeline(computePipeline);
     passEncoder.setBindGroup(0, particleBindGroups[t % 2]);
-    passEncoder.dispatch(canvasWebGPU.width, canvasWebGPU.height);
+    passEncoder.dispatch(256);
     passEncoder.endPass();
 }
 ```
-The function `.createCommandEncoder()` creates a `GPUCommandEncoder` that can be either encoded a compute pass or render pass. In this case, I will be calling `.beginComputePass()` to set the command encoder to be encoded as a compute pass. Then, I will set pipeline and bind group to the encoder and finally call `.dispatch()` to begin working with the registered pipeline and bind group. I have provided width and height of canvas to specify the dimension of the grid of workgroups to be dispatched. 
+The function `.createCommandEncoder()` creates a `GPUCommandEncoder` that can be either encoded a compute pass or render pass. In this case, I will be calling `.beginComputePass()` to set the command encoder to be encoded as a compute pass. Then, I will set pipeline and bind group to the encoder and finally call `.dispatch()` to begin working with the registered pipeline and bind group. The maximum workgroup size is `256`, so I have decided to dispatch work with maxmimum workgroup size. **Note: I will do more experiments and research on workgroups to see what number of workgroups gives the best result.**
 
 ## 6. Rendering Particles
 
@@ -303,12 +303,12 @@ const renderPassDescriptor: GPURenderPassDescriptor = {
         {
             view: textureView,
             loadValue: { r: 0.0, g: 0.0, b: 0.0, a: 1.0 }, //background color
-            storeOp: 'discard'
+            storeOp: 'store'
         }
     ]
 }
 ```
-Inside the `GPURenderPassDescriptor`, I will be setting properties of `colorAttachments` that will be visible when executing the render pass. The `loadValue` will accept 2 types: (1)`GPULoadOp`: Load operation to be performed on `view` **prior** to executing the render pass. (2) `GPUColor`: Indicates the value to clear `view` to prior to executing the render pass. Here, I am using `GPUColor` to set the background color of `view`. Before executing the render pass (rendering in particles), the `renderPassDescriptor` will load black background color first. Finally, the `storeOp` indicates the store operation to perform on `view` **after** executing the render pass. **The official WebGPU website does not explain what each `storeOp` (`store`, `discard`) does. Once I figure this out, I will update it.**
+Inside the `GPURenderPassDescriptor`, I will be setting properties of `colorAttachments` that will be visible when executing the render pass. The `loadValue` will accept 2 types: (1)`GPULoadOp`: Load operation to be performed on `view` **prior** to executing the render pass. (2) `GPUColor`: Indicates the value to clear `view` to prior to executing the render pass. Here, I am using `GPUColor` to set the background color of `view`. Before executing the render pass (rendering in particles), the `renderPassDescriptor` will load black background color first. Finally, the `storeOp` indicates the store operation to perform on `view` **after** executing the render pass. **Note: The official WebGPU website does not explain what each `storeOp` (`store`, `discard`) does. I will do more research and update it here.**
 
 Next, I will be calling `.beginRenderPass()` with the Command Encoder that I created before computation. 
 ### mainWebGPU.ts
@@ -322,6 +322,27 @@ Next, I will be calling `.beginRenderPass()` with the Command Encoder that I cre
 Similiar to Step 5, I will be passing the `renderPassDescriptor` that I created, setting the pipeline, and setting the vertex buffer. Here, you will be able to notice that I am setting the vertex buffer with `particleBuffers[(t+1)%2]`. This was done to match with the `particleBuffer` that compute pass used to write the new location of particles. For example, if `t = 0`, compute pass will use `particleBindGroups[0]`, which will be using `particleBuffer[1]` to write the new locations of particles. Then, the render pass will use `particleBuffer[(0+1)%2] = particleBuffer[1]` to render the particles with their new locations. Finally, I will be calling `.draw()` function to draw primitives (`point-list`) with the encoder. 
 
 ## 7. Measuring Performance
+
+This part is pretty simple, I used JavaScript's `performance.now()` to see how long compute and render pass took. I have noticed if I update the FPS text for every frame, the text was changing way too fast which made it difficult to read. Therefore, I have set up where the FPS text gets updated every 50ms, so the text is more visible. 
+
+Here is some data that I collected:
+| Number of Particles| FPS     |
+|--------------------|---------|
+| First entry        | 100     |
+| Fifth entry        | 100     |
+| Ninth entry        | 100     |
+| Thirteenth entry   | 100     |
+
+
+Finally, I felt accomplished when I created a cool-looking particle simulation like this:
+![Alt Text](https://media.giphy.com/media/MgJ8eaeOKaAzHk7ywF/giphy.gif)
+
+#### My Personal Device Info:
+- CPU: Intel(R) Core(TM) i7-9700k CPU @ 3.60GHz 3.60GHz
+- RAM: 16.0 GB
+- GPU: NVIDIA GeForce RTX 2080
+- OS: Windows 10
+- System Type: 64-bit, x64-based processor
 
 #### Useful Links:
 - [WebGPU Samples by Austin Eng](https://austin-eng.com/webgpu-samples)
