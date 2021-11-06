@@ -328,13 +328,17 @@ This part is pretty simple, I used JavaScript's `performance.now()` to see how l
 Here is some data that I collected:
 | Number of Particles| FPS     |
 |--------------------|---------|
-| First entry        | 100     |
-| Fifth entry        | 100     |
-| Ninth entry        | 100     |
-| Thirteenth entry   | 100     |
+| 1-30000            | 144     |
+| 30000-40000        | 100-130 |
+| 40000-50000        | 90-110  |
+| >50000             | 60-80   |
 
+Before `30000` particles, the FPS was stable at 144. After going over `30000` particles, I was able notice jumps of FPS (the size of jumps got bigger as the number of particles increased), and I was even able to sometimes see FPS higher than 144. In the table above, I put the FPS range based on the highest frquency of FPS that I was able to observe. After observing my results, I came up with some questions that I can try to answer in the future:
+1. After going over `30000` particles, FPS became significantly unstable. Why is this happening? Does this have to do with the size of workgroup? How come under `30000` particles resulted in stable FPS?
+2. Does `144` FPS has to do with any hardware restrictions? Like is the refresh rate of my monitor restricting the FPS to go over `144` FPS? Is there any way to remove this restriction?
+3. Similiar to Question 1, can I make any changes to pipelines, buffers, bindgroups, or command encoder to increase the performance? 
 
-Finally, I felt accomplished when I created a cool-looking particle simulation like this:
+Anyway, I felt accomplished when I created a cool-looking particle simulation like this:
 ![Alt Text](https://media.giphy.com/media/MgJ8eaeOKaAzHk7ywF/giphy.gif)
 
 #### My Personal Device Info:
