@@ -337,7 +337,8 @@ Before `30000` particles, the FPS was stable at 144. After going over `30000` pa
 2. Does `144` FPS has to do with any hardware restrictions? Like is the refresh rate of my monitor restricting the FPS to go over `144` FPS? Is there any way to remove this restriction?
 3. Similiar to Question 1, can I make any changes to pipelines, buffers, bindgroups, or command encoder to increase the performance? 
 
-Anyway, I felt accomplished when I created a cool-looking particle simulation like this:
+Anyway, look at this cool-looking particle simulation:
+
 ![Alt Text](https://media.giphy.com/media/MgJ8eaeOKaAzHk7ywF/giphy.gif)
 
 #### My Personal Device Info:
