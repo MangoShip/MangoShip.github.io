@@ -326,7 +326,7 @@ This part is pretty simple, I used JavaScript's `performance.now()` to see how l
 
 Here is some data (Average FPS for 10000 frames) that I collected:
 
-![screenshot]()
+![screenshot](https://raw.githubusercontent.com/MangoShip/MangoShip.github.io/master/assets/pictures/nbodywebgpu_graph.PNG)
 
 Before `10000` particles, the average FPS was capped at 144. This may be due to hardware restriction, since my monitor has a refresh rate of 144 Hz. After `10000` particles, you can see that the average FPS is slowly decreasing. While the simulation was running, I have noticed that FPS was very unstable after `10000` particles. (It was jumping +- 20~30 FPS) After observing my results, I came up with some questions that I can try to answer in the future:
 1. After going over `10000` particles, FPS became significantly unstable. Why is this happening? Does this have to do with the size of the workgroup? How come under `10000` particles resulted in stable FPS?
