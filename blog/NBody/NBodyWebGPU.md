@@ -3,7 +3,7 @@ title:  "N-Body Simulation (WebGPU)"
 permalink: "blog/NBodyWebGPU"
 layout: post
 ---
-*Updated: 11-05-2021*
+*Updated: 11-07-2021*
 
 The first tool that I used to create N-Body Simulation was [WebGPU](https://www.w3.org/TR/webgpu/), which is a JavaScript API for accelerated graphics and computing in web browsers. (Still in development) WebGPU is an easily accessible tool for GPU programming since it doesn't have a hardware requirement like Nvidia's CUDA. This was my first time getting into GPU programming, so I was very excited!
 
@@ -322,18 +322,14 @@ Similar to Step 5, I will be passing the `renderPassDescriptor` that I created, 
 
 ## 7. Measuring Performance
 
-This part is pretty simple, I used JavaScript's `performance.now()` to see how long compute and render pass took. I have noticed if I update the FPS text for every frame, the text was changing way too fast which made it difficult to read. Therefore, I have set up where the FPS text gets updated every 50ms, so the text is more visible. 
+This part is pretty simple, I used JavaScript's `performance.now()` to see how long compute and render pass took.
 
-Here is some data that I collected:
-| Number of Particles| FPS     |
-|--------------------|---------|
-| 1-30000            | 144     |
-| 30000-40000        | 100-130 |
-| 40000-50000        | 90-110  |
-| >50000             | 60-80   |
+Here is some data (Average FPS for 10000 frames) that I collected:
 
-Before `30000` particles, the FPS was stable at 144. After going over `30000` particles, I was able to notice jumps of FPS (the size of jumps got bigger as the number of particles increased), and I was even able to sometimes see FPS higher than 144. In the table above, I put the FPS range based on the highest frequency of FPS that I was able to observe. After observing my results, I came up with some questions that I can try to answer in the future:
-1. After going over `30000` particles, FPS became significantly unstable. Why is this happening? Does this have to do with the size of the workgroup? How come under `30000` particles resulted in stable FPS?
+![screenshot]()
+
+Before `10000` particles, the average FPS was capped at 144. This may be due to hardware restriction, since my monitor has a refresh rate of 144 Hz. After `10000` particles, you can see that the average FPS is slowly decreasing. While the simulation was running, I have noticed that FPS was very unstable after `10000` particles. (It was jumping +- 20~30 FPS) After observing my results, I came up with some questions that I can try to answer in the future:
+1. After going over `10000` particles, FPS became significantly unstable. Why is this happening? Does this have to do with the size of the workgroup? How come under `10000` particles resulted in stable FPS?
 2. Does `144` FPS has to do with any hardware restrictions? Like is the refresh rate of my monitor restricting the FPS to go over `144` FPS? Is there any way to remove this restriction?
 3. Similiar to Question 1, can I make any changes to pipelines, buffers, bindgroups, or command encoder to increase the performance? 
 
