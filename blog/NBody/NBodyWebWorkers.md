@@ -37,12 +37,13 @@ The `cpuWorker` is a worker file where it will perform some scripts in the backg
 
 ## Measuring Performance
 
-Similiar to WebGPU, I collected data (Average FPS for 10000 frames) with ___ particles and different number of threads:
+Similiar to WebGPU, I collected data (Average FPS for 10000 frames) with `300`,`400`,`500` particles and different number of threads:
 
-![screenshot]()
+![screenshot](https://raw.githubusercontent.com/MangoShip/MangoShip.github.io/master/assets/pictures/nbodywebworker_graph1.PNG)
+![screenshot](https://raw.githubusercontent.com/MangoShip/MangoShip.github.io/master/assets/pictures/nbodywebworker_graph2.PNG)
+![screenshot](https://raw.githubusercontent.com/MangoShip/MangoShip.github.io/master/assets/pictures/nbodywebworker_graph3.PNG)
 
-First of all, you can see the significant difference of FPS compared to WebGPU. While WebGPU was completely fine running the simulation with more than 10000 particles, this version seems to be already struggling with ___ particles. **Insert more notes** 
-
+First of all, you can see the significant difference of FPS compared to WebGPU. While WebGPU was completely fine running the simulation with more than 10000 particles, this version seems to be already struggling with `300`,`400`,`500 particles. As expected, the FPS increased as the number of threads increased. However, I found out that FPS stayed consistent after 8 number of threads. This was actually different from what I was expecting since I thought the FPS would decrease after certain number of threads. (It would be 8 for my case, since my cpu has 8 cores) Well, this is an area that I can spend some time in the future to look more into! 
 
 ## Synchronous
 
