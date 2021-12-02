@@ -3,13 +3,13 @@ title:  "N-Body Simulation (WebGPU)"
 permalink: "blog/NBodyWebGPU"
 layout: post
 ---
-*Updated: 11-07-2021*
+*Updated: 12-01-2021*
 
 The first tool that I used to create N-Body Simulation was [WebGPU](https://www.w3.org/TR/webgpu/), which is a JavaScript API for accelerated graphics and computing in web browsers. (Still in development) WebGPU is an easily accessible tool for GPU programming since it doesn't have a hardware requirement like Nvidia's CUDA. This was my first time getting into GPU programming, so I was very excited!
 
 I will be referring to specific file names from my code, so take a look at them if you are interested! [Github Link](https://github.com/MangoShip/NBodyWebGPU)
 
-## 0. General Structure
+## 0a. General Structure
 
 Here is a general structure of my implementation of WebGPU to simulate the N-Body particle simulation
 1. Get all variables needed for WebGPU API calls.
@@ -20,6 +20,23 @@ Here is a general structure of my implementation of WebGPU to simulate the N-Bod
 6. Start rendering of particles.
 7. Measure performance (FPS) to see the duration of Steps 5 and 6.
 8. Repeat 5-7.
+
+## 0b. How to use WebGPU
+
+There are currently two ways (that I know of) to use WebGPU.
+
+### Google Chrome Canary
+
+Since WebGPU is still in development, it is available in [Google Chrome Canary](https://www.google.com/chrome/canary/). Google Chrome Canary is an environment for developers that allow new features, flags, and APIs to be used and tested. After downloading Google Chrome Canary, make sure to enable the flag `Unsafe WebGPU` by directing to `chrome://flags`
+
+### Chrome Origin Trial
+
+Another way to use WebGPU is to register for a token through [Chrome Origin Trial](https://developer.chrome.com/origintrials/#/trials/active). This way, WebGPU can be used in regular Google Chrome. After registering, I inserted the token in `index.html` for my local server.
+#### index.html
+```
+<meta http-equiv="origin-trial" content="INSERT_TOKEN">
+```
+In order to see if the WebGPU is working properly, you can open Chrome's Inspect window -> `Application` -> `Frames` -> `top`, then scroll down to find `Origin Trials`. Here, you will find `WebGPU` with "Enabled" sign if the inserted token is working properly. 
 
 ## 1. Getting Variables
 
