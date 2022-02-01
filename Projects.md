@@ -20,7 +20,7 @@ Simulating N-Body problems using different techniques (Web Workers, QuadTree, We
 
 ## Programming Projects
 
-- [IncidentAid](https://incidentaid.com/) (July 2021 - Present)
+- [IncidentAid](https://incidentaid.com/) (July 2021 - December 2021)
 
 IOS/Android App Development for enhancing communication between firefighters during incidents. Worked with Professor Navid Shaghaghi from SCU and other student-programmers. Developed using Android Studio to work on the Android side of the project. Got familiar with using Google Firebase to handle the app’s database. Performed a demo showcase in front of firefighters.
 

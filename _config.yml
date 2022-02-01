@@ -1,6 +1,6 @@
 title: "Mingun Cho"
 author: "Mingun Cho"
-description: "Last Updated: December 1, 2021"
+description: "Last Updated: February 1, 2021"
 permalink: /:title/
 lang: "en"
 excerpt_separator: "\n\n\n"
@@ -17,7 +17,7 @@ minimal: false             # use a dark header
 
 navigation:                # accepts {file, title, url, icon, sidebaricon}
   - {file: "home.md", title: "Home"}
-  - {url: "https://drive.google.com/file/d/12b3kCLplU6zeB1j6Sxq-Ni0uCyPRTkIP/view?usp=sharing", title: "CV"}
+  - {url: "https://drive.google.com/file/d/1zBKIFgcRYC3AvQo4-I_7IhhDExIIdfY4/view?usp=sharing", title: "CV"}
   - {url: "https://mangoship.github.io/projects", title: "Projects"}
   - {url: "https://mangoship.github.io/blog", title: "Blog"}
 
