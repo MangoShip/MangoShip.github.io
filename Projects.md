@@ -10,7 +10,7 @@ layout: page
 
 An Android App Development for testing Litmus Test Generator for the Vulkan Framework. Worked with Professor Tyler Sorensen and Reese Levine (Ph.D. student who originally developed the Litmus Test Generator for the Vulkan Framework) from UCSC. Developed using Android Studio. The main responsibility was to convert the original project to be compatible with the Android environment. 
 
-- [Graph CFL-Reachability](https://github.com/MangoShip/GraphCFL) (October 2021 - Present)
+- [Graph CFL-Reachability](https://github.com/MangoShip/GraphCFL) (October 2021 - February 2022)
 
 A research project of studying efficient ways of checking CFL-reachability in graphs. CFL- reachability is a reachability problem in graphs that checks if a path from a vertex to another vertex along which the labels form a string that is part of a context-free language (CFL). Worked with Professor Zhijia Zhao from UCR. Inspired by an open-source project called [Graspan](https://github.com/Graspan). 
 
