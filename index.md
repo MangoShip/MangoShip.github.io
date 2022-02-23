@@ -3,7 +3,7 @@ title: "Home"
 layout: page
 ---
 
-![screenshot](https://raw.githubusercontent.com/MangoShip/MangoShip.github.io/master/assets/pictures/MingunChoHeadshot.jpg)
+![screenshot](https://raw.githubusercontent.com/MangoShip/MangoShip.github.io/master/assets/pictures/FA8C56D8-BD87-4A9D-9B08-D6296A996420.jpg)
 
 ## Contact Info
 
