@@ -12,4 +12,4 @@ layout: page
 
 ## About Me
 
-My name is Mingun Cho and I'm currently applying to graduate schools to pursue a Ph.D. degree in Computer Science for Fall 2022. I received my BS in Computer Science: Game Design at Univeristy of California, Santa Cruz in Spring 2021. My research intersts are programming languages that involve parallelism, shared-memory concurrency, reliability and optimization of memory models, and GPU programming. 
+My name is Mingun Cho and I will be attending University of California for my Ph.D. degree in Computer Science starting on Fall 2022, advised by Professor [John Owens](https://www.ece.ucdavis.edu/~jowens/). I received my BS in Computer Science: Game Design at Univeristy of California, Santa Cruz in Spring 2021. After graduating from UCSC, I worked with Professor [Tyler Sorensen](https://users.soe.ucsc.edu/~tsorensen/) in research of memory models, specifically in Vulkan. 
