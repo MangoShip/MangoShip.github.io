@@ -6,9 +6,9 @@ layout: page
 
 ## Research Projects
 
-- [LitmusTest Android](https://github.com/MangoShip/LitmusTestAndroid) (October 2021 - Present)
+- [Android Vulkan Memory Model Testing](https://github.com/MangoShip/LitmusTestAndroid) (October 2021 - September 2022)
 
-An Android App Development for testing Litmus Test Generator for the Vulkan Framework. Worked with Professor Tyler Sorensen and Reese Levine (Ph.D. student who originally developed the Litmus Test Generator for the Vulkan Framework) from UCSC. Developed using Android Studio. The main responsibility was to convert the original project to be compatible with the Android environment. 
+An Android App development for using litmus tests to showcase the allowed behaviors on Vulkan memory model on Android devices. Worked with Professor [Tyler Sorensen](https://users.soe.ucsc.edu/~tsorensen/) and [Reese Levine](https://users.soe.ucsc.edu/~reeselevine/) (Ph.D. student who originally developed the Litmus Test Generator for the Vulkan Framework) from UCSC. Developed using Android Studio. The main responsibility was to convert the original project to be compatible with the Android environment. 
 
 - [Graph CFL-Reachability](https://github.com/MangoShip/GraphCFL) (October 2021 - February 2022)
 
