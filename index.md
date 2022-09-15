@@ -7,7 +7,7 @@ layout: page
 
 ## Contact Info
 
-- email: mingun0108@gmail.com, mcho23@ucsc.edu
+- email: mingun0108@gmail.com, mcho23@ucsc.edu, mgcho@ucdavis.edu
 - phone: +1(408)890-1665
 
 ## About Me
