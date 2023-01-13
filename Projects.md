@@ -6,6 +6,15 @@ layout: page
 
 ## Research Projects
 
+- [GraphZeppelin](https://github.com/MangoShip/GraphZeppelin) (September 2022 - Present)
+
+High-performance streaming graph-processing system for computing the connected components of a
+large and dense graph using CPU. The main responsibility was to optimize the streaming process by
+enhancing the original implementation to take advantage of the GPU’s processing power. Built my
+fundamentals of GPU programming (CUDA) and architecture by going through significant
+modifications and optimizations to allow CPU implementatinos to be compatible with GPUs.
+[Original Project Publication Link](https://dl.acm.org/doi/10.1145/3514221.3526146)
+
 - [Android Vulkan Memory Model Testing](https://github.com/MangoShip/LitmusTestAndroid) (October 2021 - September 2022)
 
 An Android App development for using litmus tests to showcase the allowed behaviors on Vulkan memory model on Android devices. Worked with Professor [Tyler Sorensen](https://users.soe.ucsc.edu/~tsorensen/) and [Reese Levine](https://users.soe.ucsc.edu/~reeselevine/) (Ph.D. student who originally developed the Litmus Test Generator for the Vulkan Framework) from UCSC. Developed using Android Studio. The main responsibility was to convert the original project to be compatible with the Android environment. 
