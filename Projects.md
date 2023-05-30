@@ -10,9 +10,9 @@ layout: page
 
 High-performance streaming graph-processing system for computing the connected components of a
 large and dense graph using CPU. The main responsibility was to optimize the streaming process by
-enhancing the original implementation to take advantage of the GPU’s processing power. Built my
+enhancing the original implementation to take advantage of the GPU’s computation power. Built my
 fundamentals of GPU programming (CUDA) and architecture by going through significant
-modifications and optimizations to allow CPU implementatinos to be compatible with GPUs.
+modifications and optimizations to allow CPU implementations to be compatible with GPUs.
 [Original Project Publication Link](https://dl.acm.org/doi/10.1145/3514221.3526146)
 
 - [Android Vulkan Memory Model Testing](https://github.com/MangoShip/LitmusTestAndroid) (October 2021 - September 2022)
